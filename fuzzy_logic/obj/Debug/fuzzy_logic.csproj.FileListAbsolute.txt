@@ -1,0 +1,11 @@
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\bin\Debug\fuzzy_logic.exe.config
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\bin\Debug\fuzzy_logic.exe
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\bin\Debug\fuzzy_logic.pdb
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.csproj.AssemblyReference.cache
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.csproj.SuggestedBindingRedirects.cache
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.Form1.resources
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.Properties.Resources.resources
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.csproj.GenerateResource.cache
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.csproj.CoreCompileInputs.cache
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.exe
+C:\Users\kh991\OneDrive\바탕 화면\동국대학교\졸작\fuzzy_logic\fuzzy_logic\obj\Debug\fuzzy_logic.pdb
