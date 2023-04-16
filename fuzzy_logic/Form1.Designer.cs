@@ -91,9 +91,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
-            this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -223,10 +221,17 @@
             this.progressBar2.Maximum = 4;
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(241, 23);
+            this.progressBar2.Step = 1;
             this.progressBar2.TabIndex = 8;
             // 
             // numericUpDown2
             // 
+            this.numericUpDown2.DecimalPlaces = 1;
+            this.numericUpDown2.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
             this.numericUpDown2.Location = new System.Drawing.Point(45, 264);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(42, 21);
@@ -362,6 +367,7 @@
             this.richTextBox7.Size = new System.Drawing.Size(88, 33);
             this.richTextBox7.TabIndex = 20;
             this.richTextBox7.Text = "";
+            this.richTextBox7.TextChanged += new System.EventHandler(this.richTextBox7_TextChanged);
             // 
             // richTextBox8
             // 
@@ -640,6 +646,7 @@
             this.richTextBox5.Size = new System.Drawing.Size(97, 25);
             this.richTextBox5.TabIndex = 54;
             this.richTextBox5.Text = "";
+            this.richTextBox5.TextChanged += new System.EventHandler(this.richTextBox5_TextChanged);
             // 
             // label31
             // 
@@ -673,33 +680,12 @@
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
-            // elementHost1
-            // 
-            this.elementHost1.Location = new System.Drawing.Point(318, 42);
-            this.elementHost1.Name = "elementHost1";
-            this.elementHost1.Size = new System.Drawing.Size(1126, 752);
-            this.elementHost1.TabIndex = 57;
-            this.elementHost1.Text = "elementHost1";
-            this.elementHost1.Visible = false;
-            this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
-            this.elementHost1.Child = null;
-            // 
-            // richTextBox9
-            // 
-            this.richTextBox9.Location = new System.Drawing.Point(1053, 403);
-            this.richTextBox9.Name = "richTextBox9";
-            this.richTextBox9.Size = new System.Drawing.Size(555, 185);
-            this.richTextBox9.TabIndex = 58;
-            this.richTextBox9.Text = "";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1516, 925);
-            this.Controls.Add(this.richTextBox9);
-            this.Controls.Add(this.elementHost1);
+            this.ClientSize = new System.Drawing.Size(1516, 942);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.richTextBox5);
@@ -836,9 +822,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
-        private System.Windows.Forms.Integration.ElementHost elementHost1;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.RichTextBox richTextBox9;
     }
 }
 

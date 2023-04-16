@@ -26,12 +26,12 @@ namespace fuzzy_logic
        
         ChartArea eyeClosedChartArea = new ChartArea();
         ChartArea headDownChartArea = new ChartArea();
-        ChartArea deFuzzyChartArea = new ChartArea();
+        
         ChartArea deFuzzyChartAreaResultArea = new ChartArea();
 
         System.Windows.Forms.DataVisualization.Charting.Legend legend = new System.Windows.Forms.DataVisualization.Charting.Legend();
         System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-        System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      
         System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 
         System.Windows.Forms.DataVisualization.Charting.Chart eyeClosedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -78,10 +78,6 @@ namespace fuzzy_logic
         double eyeClosedYvalue2;
         double eyeClosedYvalue3;
 
-        double defuzzyYvalue;
-        double defuzzyYvalue1;
-        double defuzzyYvalue2;
-        double defuzzyYvalue3;
 
         double headDownYvalue;
         double headDownYvalue1;
@@ -89,7 +85,7 @@ namespace fuzzy_logic
 
         int eyeClosedInput;
         int headDownXinput;
-        int defuzzyXinput;
+        
 
         double result1;
         double result2;
@@ -113,7 +109,7 @@ namespace fuzzy_logic
         List<double> thirdz = new List<double>();
         public Form1()
         {
-          
+
             InitializeComponent();
             // Legend 생성
 
@@ -131,12 +127,7 @@ namespace fuzzy_logic
             legend1.BackColor = Color.White;
             legend1.Font = new Font("맑은 고딕", 9, FontStyle.Bold);
 
-            legend2.Name = "Legend";
-            legend2.Title = "Legend Title";
-            legend2.Docking = Docking.Bottom;
-            legend2.Alignment = StringAlignment.Center;
-            legend2.BackColor = Color.White;
-            legend2.Font = new Font("맑은 고딕", 9, FontStyle.Bold);
+
 
             legend3.Name = "Legend";
             legend3.Title = "Legend Title";
@@ -169,15 +160,6 @@ namespace fuzzy_logic
             deFuzzyResultChart.Left = 1100;
             deFuzzyResultChart.Top = 700;
 
-            deFuzzyChartArea.AxisX.MajorGrid.Enabled = false;
-            deFuzzyChartArea.AxisY.MajorGrid.Enabled = false;
-            deFuzzyChartArea.Name = "ChartArea";
-            deFuzzyChartArea.AxisX.Title = "눈 감음 시간";
-            deFuzzyChartArea.AxisY.Title = "가중치";
-            deFuzzyChartArea.AxisX.Minimum = 0;
-            deFuzzyChartArea.AxisX.Maximum = 100;
-            deFuzzyChartArea.AxisX.Interval = 20;
-
             deFuzzyChartAreaResultArea.AxisX.MajorGrid.Enabled = false;
             deFuzzyChartAreaResultArea.AxisY.MajorGrid.Enabled = false;
             deFuzzyChartAreaResultArea.Name = "ChartArea";
@@ -195,9 +177,9 @@ namespace fuzzy_logic
             headDownChartArea.AxisX.Title = "눈 감음 시간";
             headDownChartArea.AxisY.Title = "가중치";
             headDownChartArea.AxisX.Minimum = 0;
-            headDownChartArea.AxisX.Maximum = 4;
-            headDownChartArea.AxisX.Interval = 1;
-          
+            headDownChartArea.AxisX.Maximum = 40;
+            headDownChartArea.AxisX.Interval = 10;
+
             eyeClosedChartArea.AxisX.MajorGrid.Enabled = false;
             eyeClosedChartArea.AxisY.MajorGrid.Enabled = false;
             eyeClosedChartArea.Name = "ChartArea";
@@ -219,7 +201,7 @@ namespace fuzzy_logic
                 {
                     y = 1;
                 }
-                else if (x > 200 && x <400)
+                else if (x > 200 && x < 400)
                 {
                     y = (400 - x) / 200.0;
                 }
@@ -238,11 +220,11 @@ namespace fuzzy_logic
                 }
                 else if (x > 200 && x <= 400)
                 {
-                    y = (x-400) / 200.0+1;
+                    y = (x - 400) / 200.0 + 1;
                 }
-                else if(x > 400 && x <= 600)
+                else if (x > 400 && x <= 600)
                 {
-                    y = (600 - x) / 200.0 ;
+                    y = (600 - x) / 200.0;
                 }
                 else
                 {
@@ -282,7 +264,7 @@ namespace fuzzy_logic
                 {
                     y = (x - 800) / 200.0 + 1;
                 }
-                
+
                 else
                 {
                     y = 1;
@@ -290,16 +272,16 @@ namespace fuzzy_logic
                 eyeClosedSeries3.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
 
-            for (int x = 0; x <= 4; x++)
+            for (double x = 0; x <= 40; x++)
             {
                 double y;
-                if (x <= 1)
+                if (x <= 10)
                 {
                     y = 1;
                 }
-                else if (x > 1 && x < 2)
+                else if (x > 10 && x <= 20)
                 {
-                    y = (2 - x) / 1;
+                    y = (20 - x) / 10;
                 }
                 else
                 {
@@ -307,20 +289,20 @@ namespace fuzzy_logic
                 }
                 headDownSeries.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
-            for (int x = 0; x <= 4; x++)
+            for (double x = 0; x <= 40; x++)
             {
                 double y;
-                if (x <= 1)
+                if (x <= 10)
                 {
                     y = 0;
                 }
-                else if (x > 1 && x < 2)
+                else if (x > 10 && x < 20)
                 {
-                    y = (x - 1) / 1;
+                    y = (x - 10) / 10;
                 }
-                else if(x >= 2 && x <= 3)
+                else if (x >= 20 && x <= 30)
                 {
-                    y = (2-x) / 1 + 1;
+                    y = (20 - x) / 10 + 1;
                 }
                 else
                 {
@@ -328,20 +310,20 @@ namespace fuzzy_logic
                 }
                 headDownSeries1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
-            for (int x = 0; x <= 4; x++)
+            for (double x = 0; x <= 40; x++)
             {
                 double y;
-                if (x <= 2)
+                if (x <= 20)
                 {
                     y = 0;
                 }
-                else if (x > 2 && x < 3)
+                else if (x > 20 && x < 30)
                 {
-                    y = (x - 2) / 1;
+                    y = (x - 20) / 10;
                 }
-                else if (x >= 2 && x <= 3)
+                else if (x >= 20 && x <= 30)
                 {
-                    y = (3 - x) / 1 + 1;
+                    y = (30 - x) / 10 + 1;
                 }
                 else
                 {
@@ -350,6 +332,12 @@ namespace fuzzy_logic
                 headDownSeries2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
 
+  
+
+            deFuzzySeries.Points.Clear();
+            deFuzzySeries1.Points.Clear();
+            deFuzzySeries2.Points.Clear();
+            deFuzzySeries3.Points.Clear();
             for (double x = 0; x <= 100; x++)
             {
                 double y;
@@ -490,11 +478,7 @@ namespace fuzzy_logic
             //chart1.ChartAreas.Add(chartArea);
             eyeClosedChart.Series.Add(eyeClosedSeries3);
 
-            deFuzzyChart.ChartAreas.Add(deFuzzyChartArea);
-            deFuzzyChart.Series.Add(deFuzzySeries);          
-            deFuzzyChart.Series.Add(deFuzzySeries1);
-            deFuzzyChart.Series.Add(deFuzzySeries2);
-            deFuzzyChart.Series.Add(deFuzzySeries3);
+            
 
             deFuzzyResultChart.ChartAreas.Add(deFuzzyChartAreaResultArea);
             deFuzzyResultChart.Series.Add(deFuzzyResultSeries);
@@ -543,7 +527,7 @@ namespace fuzzy_logic
             this.openGLControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
 
             // 폼에 OpenGLControl 추가
-            this.Controls.Add(this.openGLControl1);*/
+            this.Controls.Add(this.openGLControl1);*//*
             //System.Windows.Media.Media3D.
 
 
@@ -572,7 +556,7 @@ namespace fuzzy_logic
             double step = 0.2;
             System.Windows.Media.Media3D.Point3D[,] points = new System.Windows.Media.Media3D.Point3D[n, n];
             MeshBuilder meshBuilder = new MeshBuilder();
-           /* for (int i = 0; i < n; i++)
+           *//* for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
@@ -595,7 +579,7 @@ namespace fuzzy_logic
                     meshBuilder.AddTriangle(p0, p1, p2);
                     meshBuilder.AddTriangle(p0, p2, p3);
                 }
-            }*/
+            }*//*
 
             for(int x = 0; x < 1000; x++)
             {
@@ -614,7 +598,7 @@ namespace fuzzy_logic
 
 
 
-
+*/
 
 
 
@@ -679,7 +663,13 @@ namespace fuzzy_logic
             eyeClosedInput = Decimal.ToInt32(numericUpDown1.Value);
             progressBar1.Value = eyeClosedInput;
         }
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            headDownXinput = Decimal.ToInt32(numericUpDown2.Value);
+           // richTextBox9.Text = headDownXinput.ToString();
+            progressBar2.Value = (int)headDownXinput;
 
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             
@@ -692,8 +682,9 @@ namespace fuzzy_logic
             headDownChartPoint = headDownSeries.Points.FirstOrDefault(p => p.XValue == headDownXinput);
             headDownChartPoint1 = headDownSeries1.Points.FirstOrDefault(p => p.XValue == headDownXinput);
             headDownChartPoint2 = headDownSeries2.Points.FirstOrDefault(p => p.XValue == headDownXinput);
-           
+
             
+
             eyeClosedYvalue = (double)eyeClosedChartPoint.YValues[0];
             eyeClosedYvalue1 = (double)eyeClosedChartPoint1.YValues[0];
             eyeClosedYvalue2 = (double)eyeClosedChartPoint2.YValues[0];
@@ -708,9 +699,11 @@ namespace fuzzy_logic
             richTextBox3.Text = eyeClosedYvalue2.ToString();
             richTextBox4.Text = eyeClosedYvalue3.ToString();
 
-             headDownYvalue = (double)headDownChartPoint.YValues[0];
-             headDownYvalue1 = (double)headDownChartPoint1.YValues[0];
-             headDownYvalue2 = (double)headDownChartPoint2.YValues[0];
+            //richTextBox9.Text = headDownSeries.Points.FirstOrDefault(p => p.XValue == headDownXinput).ToString();
+
+            headDownYvalue = (double)headDownChartPoint.YValues[0];
+            headDownYvalue1 = (double)headDownChartPoint1.YValues[0];
+            headDownYvalue2 = (double)headDownChartPoint2.YValues[0];
             
             richTextBox6.ReadOnly = true;
             richTextBox7.ReadOnly = true;
@@ -754,7 +747,7 @@ namespace fuzzy_logic
             resultInference4.Text = headDownYvalue.ToString();
 
             result1=(double)eyeClosedYvalue <= headDownYvalue ? eyeClosedYvalue : headDownYvalue;
-            result2 = (double)eyeClosedYvalue1 <= headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
+            result2 = (double)eyeClosedYvalue1 >= headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
             result3 = (double)(eyeClosedYvalue2 <=  ((1 - headDownYvalue)) ? eyeClosedYvalue2 : ( 1 - headDownYvalue));
             result4 = eyeClosedYvalue3;
             resultInference1.Text = result1.ToString();
@@ -763,21 +756,51 @@ namespace fuzzy_logic
             resultInference4.Text = result4.ToString();
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            headDownXinput = Decimal.ToInt32(numericUpDown2.Value);
-            progressBar2.Value = headDownXinput;
-
-        }
+       
 
         private void button3_Click(object sender, EventArgs e)
         {
+            ChartArea deFuzzyChartArea = new ChartArea();
+            deFuzzyChartArea.AxisX.MajorGrid.Enabled = false;
+            deFuzzyChartArea.AxisY.MajorGrid.Enabled = false;
+            deFuzzyChartArea.Name = "ChartArea";
+            deFuzzyChartArea.AxisX.Title = "눈 감음 시간";
+            deFuzzyChartArea.AxisY.Title = "가중치";
+            deFuzzyChartArea.AxisX.Minimum = 0;
+            deFuzzyChartArea.AxisX.Maximum = 100;
+            deFuzzyChartArea.AxisX.Interval = 20;
+
+            deFuzzyChart.ChartAreas.Clear();
+            deFuzzyChart.Series.Clear();
+
+            
+            deFuzzyChart.ChartAreas.Add(deFuzzyChartArea);
+            deFuzzyChart.Series.Add(deFuzzySeries);
+            deFuzzyChart.Series.Add(deFuzzySeries1);
+            deFuzzyChart.Series.Add(deFuzzySeries2);
+            deFuzzyChart.Series.Add(deFuzzySeries3);
+
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+
+            legend2.Name = "Legend";
+            legend2.Title = "Legend Title";
+            legend2.Docking = Docking.Bottom;
+            legend2.Alignment = StringAlignment.Center;
+            legend2.BackColor = Color.White;
+            legend2.Font = new Font("맑은 고딕", 9, FontStyle.Bold);
+
             this.Controls.Add(deFuzzyChart);
             deFuzzySeries.LegendText = "완전아님";
             deFuzzySeries1.LegendText = "의심";
             deFuzzySeries2.LegendText = "약간 확실";
             deFuzzySeries3.LegendText = "확실";
+            deFuzzyChart.Legends.Clear();
             deFuzzyChart.Legends.Add(legend2);
+
+            deFuzzyResultSeries.Points.Clear();
+            deFuzzyResultSeries1.Points.Clear();
+            deFuzzyResultSeries2.Points.Clear();
+            deFuzzyResultSeries3.Points.Clear();
             for (double x = 0; x <= 100; x++)
             {
                 double y;
@@ -883,6 +906,7 @@ namespace fuzzy_logic
             deFuzzyResultSeries1.LegendText = "의심";
             deFuzzyResultSeries2.LegendText = "약간 확실";
             deFuzzyResultSeries3.LegendText = "확실";
+            deFuzzyResultChart.Legends.Clear();
             deFuzzyResultChart.Legends.Add(legend3);
 
             double totalX = 0;
@@ -890,16 +914,17 @@ namespace fuzzy_logic
             double totalWeight = 0;
 
             // calculate weighted average for each series
-            for (int i = 0; i < deFuzzyResultSeries.Points.Count; i++)
+            for (int i = 0; i < deFuzzyResultSeries.Points.Count-1; i++)
             {
                 double x = deFuzzyResultSeries.Points[i].XValue;
                 double y = deFuzzyResultSeries.Points[i].YValues[0];
+                
                 double weight = y * (i + 0.5); // use mid-point of interval as weight
                 totalX += x * weight;
                 totalY += y * weight;
                 totalWeight += weight;
             }
-            for (int i = 0; i < deFuzzyResultSeries1.Points.Count; i++)
+            for (int i = 0; i < deFuzzyResultSeries1.Points.Count-1; i++)
             {
                 double x = deFuzzyResultSeries1.Points[i].XValue;
                 double y = deFuzzyResultSeries1.Points[i].YValues[0];
@@ -908,7 +933,7 @@ namespace fuzzy_logic
                 totalY += y * weight;
                 totalWeight += weight;
             }
-            for (int i = 0; i < deFuzzyResultSeries2.Points.Count; i++)
+            for (int i = 0; i < deFuzzyResultSeries2.Points.Count-1; i++)
             {
                 double x = deFuzzyResultSeries2.Points[i].XValue;
                 double y = deFuzzyResultSeries2.Points[i].YValues[0];
@@ -917,7 +942,7 @@ namespace fuzzy_logic
                 totalY += y * weight;
                 totalWeight += weight;
             }
-            for (int i = 0; i < deFuzzyResultSeries3.Points.Count; i++)
+            for (int i = 0; i < deFuzzyResultSeries3.Points.Count-1; i++)
             {
                 double x = deFuzzyResultSeries3.Points[i].XValue;
                 double y = deFuzzyResultSeries3.Points[i].YValues[0];
@@ -931,6 +956,9 @@ namespace fuzzy_logic
             double centerX = totalX / totalWeight;
             double centerY = totalY / totalWeight;
 
+            if(totalWeight == 0) {
+                centerX = 0;
+            }
             richTextBox5.Text = centerX.ToString();
         }
        
@@ -942,7 +970,22 @@ namespace fuzzy_logic
 
         private void button4_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 1000; i++)
+            string output = "";
+            for(int i = 0; i < 1001; ++i)
+            {
+                for(double j = 0; j < 5; j += 0.1f)
+                {
+                    numericUpDown1.Value = i;
+                    numericUpDown2.Value = (decimal)j;
+                    button1_Click(sender, e);
+                    button2_Click(sender, e);
+                    button3_Click(sender, e);
+                    output += "" + i + " " + j + " " + richTextBox5.Text + "\n";
+                }
+            }
+            System.IO.File.WriteAllText("fuzzy.txt", output, Encoding.Default);
+           
+           /* for (int i = 0; i < 1000; i++)
             {
                 eyeClosedChartPoint = eyeClosedSeries.Points.FirstOrDefault(p => p.XValue == i);
                 thirdX1.Add((double)eyeClosedChartPoint.YValues[0]);
@@ -974,18 +1017,18 @@ namespace fuzzy_logic
                 for (int j =0; j < 5; j++)
                 {
 
-                    /* result1 = (double)eyeClosedYvalue < headDownYvalue ? eyeClosedYvalue : headDownYvalue;
+                    *//* result1 = (double)eyeClosedYvalue < headDownYvalue ? eyeClosedYvalue : headDownYvalue;
                      result2 = (double)eyeClosedYvalue1 < headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
                      result3 = (double)(eyeClosedYvalue2 < ((1 - headDownYvalue)) ? eyeClosedYvalue2 : (1 - headDownYvalue));
-                     result4 = eyeClosedYvalue3;*/
+                     result4 = eyeClosedYvalue3;*//*
                     
                     
                     
                     
-                    thirdResult1.Add(((double)thirdX1[i] <= third1y[j]) ? thirdX1[i] : third1y[j]);
-                    thirdResult2.Add(((double)thirdX2[i] <= third2y[j]) ? thirdX2[i] : third2y[j]);
-                    thirdResult3.Add((double)(thirdX3[i] <= ((1 - third1y[j])) ? thirdX3[i] : (1 - third1y[j])));
-                    thirdResult4.Add((double)thirdX4[i]);
+                    thirdResult1.Add(((double)thirdX1[i] <= third1y[j]) ? thirdX1[i] : third1y[j]); //완전아님
+                    thirdResult2.Add(((double)thirdX2[i] <= third2y[j]) ? thirdX2[i] : third2y[j]); // 의심
+                    thirdResult3.Add((double)(thirdX3[i] <= ((1 - third1y[j])) ? thirdX3[i] : (1 - third1y[j]))); // 약간 확실
+                    thirdResult4.Add((double)thirdX4[i]); // 확실
 
 
                     //richTextBox9.Text += "r1 : " + testx1.ToString() + ", r2 : " + testx2.ToString() + 
@@ -993,15 +1036,26 @@ namespace fuzzy_logic
 
                 }
 
-            }
-            List<string> list1 = new List<string>();
-            for (int i = 0; i < 1000; i++)
-            {
-                list1[i] += "r1 : " + thirdResult1[i] + ", r2 : " + thirdResult2[i] +
-                   ", r3 : " + thirdResult3[i] + ", r4 : " + thirdResult4[i] + "\n";
-            }
-           /* richTextBox9.Text = "r1 : " + thirdResult1.Count + ", r2 : " + thirdResult2.Count +
-              ", r3 : " + thirdResult4.Count + ", r4 : " + thirdResult3.Count + "\n";*/
+            }*/
+
+
+
+
+        }
+
+        private void richTextBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox9_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
