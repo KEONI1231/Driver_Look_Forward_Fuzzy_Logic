@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -91,10 +92,13 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.elementHost1 = new System.Windows.Forms.Integration.ElementHost();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -649,12 +653,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(1783, 862);
+            this.button4.Location = new System.Drawing.Point(211, 727);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 56;
             this.button4.Text = "3D";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // openFileDialog1
             // 
@@ -675,15 +680,25 @@
             this.elementHost1.Size = new System.Drawing.Size(1126, 752);
             this.elementHost1.TabIndex = 57;
             this.elementHost1.Text = "elementHost1";
+            this.elementHost1.Visible = false;
             this.elementHost1.ChildChanged += new System.EventHandler<System.Windows.Forms.Integration.ChildChangedEventArgs>(this.elementHost1_ChildChanged);
             this.elementHost1.Child = null;
+            // 
+            // richTextBox9
+            // 
+            this.richTextBox9.Location = new System.Drawing.Point(1053, 403);
+            this.richTextBox9.Name = "richTextBox9";
+            this.richTextBox9.Size = new System.Drawing.Size(555, 185);
+            this.richTextBox9.TabIndex = 58;
+            this.richTextBox9.Text = "";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1784, 961);
+            this.ClientSize = new System.Drawing.Size(1516, 925);
+            this.Controls.Add(this.richTextBox9);
             this.Controls.Add(this.elementHost1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label31);
@@ -751,6 +766,7 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,6 +837,8 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
         private System.Windows.Forms.Integration.ElementHost elementHost1;
+        private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.RichTextBox richTextBox9;
     }
 }
 

@@ -95,6 +95,22 @@ namespace fuzzy_logic
         double result2;
         double result3;
         double result4;
+
+        List<double> thirdX1 = new List<double>();
+        List<double> thirdX2 = new List<double>();
+        List<double> thirdX3 = new List<double>();
+        List<double> thirdX4 = new List<double>();
+
+        List<double> thirdResult1 = new List<double>();
+        List<double> thirdResult2 = new List<double>();
+        List<double> thirdResult3 = new List<double>();
+        List<double> thirdResult4 = new List<double>();
+
+        List<double> third1y = new List<double>();
+        List<double> third2y = new List<double>();
+        List<double> third3y = new List<double>();
+
+        List<double> thirdz = new List<double>();
         public Form1()
         {
           
@@ -555,7 +571,8 @@ namespace fuzzy_logic
             int n = 50;
             double step = 0.2;
             System.Windows.Media.Media3D.Point3D[,] points = new System.Windows.Media.Media3D.Point3D[n, n];
-            for (int i = 0; i < n; i++)
+            MeshBuilder meshBuilder = new MeshBuilder();
+           /* for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
@@ -567,7 +584,6 @@ namespace fuzzy_logic
                 }
             }
 
-            MeshBuilder meshBuilder = new MeshBuilder();
             for (int i = 0; i < n - 1; i++)
             {
                 for (int j = 0; j < n - 1; j++)
@@ -579,6 +595,13 @@ namespace fuzzy_logic
                     meshBuilder.AddTriangle(p0, p1, p2);
                     meshBuilder.AddTriangle(p0, p2, p3);
                 }
+            }*/
+
+            for(int x = 0; x < 1000; x++)
+            {
+                
+                 
+                    
             }
 
             GeometryModel3D model = new GeometryModel3D(meshBuilder.ToMesh(), Materials.Blue);
@@ -588,6 +611,12 @@ namespace fuzzy_logic
 
             // ElementHost에 뷰포트 추가
             elementHost1.Child = viewport;
+
+
+
+
+
+
 
         }
 
@@ -653,9 +682,7 @@ namespace fuzzy_logic
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
-
-       
+            
 
             eyeClosedChartPoint = eyeClosedSeries.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
             eyeClosedChartPoint1 = eyeClosedSeries1.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
@@ -726,9 +753,9 @@ namespace fuzzy_logic
 
             resultInference4.Text = headDownYvalue.ToString();
 
-            result1=(double)eyeClosedYvalue < headDownYvalue ? eyeClosedYvalue : headDownYvalue;
-            result2 = (double)eyeClosedYvalue1 < headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
-            result3 = (double)(eyeClosedYvalue2 <  ((1 - headDownYvalue)) ? eyeClosedYvalue2 : ( 1 - headDownYvalue));
+            result1=(double)eyeClosedYvalue <= headDownYvalue ? eyeClosedYvalue : headDownYvalue;
+            result2 = (double)eyeClosedYvalue1 <= headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
+            result3 = (double)(eyeClosedYvalue2 <=  ((1 - headDownYvalue)) ? eyeClosedYvalue2 : ( 1 - headDownYvalue));
             result4 = eyeClosedYvalue3;
             resultInference1.Text = result1.ToString();
             resultInference2.Text = result2.ToString();
@@ -766,7 +793,7 @@ namespace fuzzy_logic
                 {
                     y = 0;
                 }
-                if( y > result1)
+                if( y >= result1)
                 {
                     y = result1;
                 }
@@ -787,7 +814,7 @@ namespace fuzzy_logic
                 {
                     y = 0;
                 }
-                if (y > result2)
+                if (y >= result2)
                 {
                     y = result2;
                 }
@@ -808,7 +835,7 @@ namespace fuzzy_logic
                 {
                     y = 0;
                 }
-                if (y > result3)
+                if (y >= result3)
                 {
                     y = result3;
                 }
@@ -829,7 +856,7 @@ namespace fuzzy_logic
                 {
                     y = 0;
                 }
-                if (y > result4)
+                if (y >= result4)
                 {
                     y = result4;
                 }
@@ -906,37 +933,75 @@ namespace fuzzy_logic
 
             richTextBox5.Text = centerX.ToString();
         }
-        private void openGLControl1_Load(object sender, EventArgs e)
-        {
-           
-            // OpenGL Control에서 렌더링할 내용 초기화
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity();
-            GL.Ortho(-1, 1, -1, 1, -1, 1);
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();
-        }
-
-        private void openGLControl1_Paint(object sender, PaintEventArgs e)
-        {
-              GL.Enable(EnableCap.DepthTest);
-            GL.ClearColor(Color.Black);
-            // OpenGL Control에서 렌더링
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            GL.Begin(PrimitiveType.Triangles);
-            GL.Color3(Color.Red);
-            GL.Vertex3(-0.5f, -0.5f, 0);
-            GL.Color3(Color.Green);
-            GL.Vertex3(0.5f, -0.5f, 0);
-            GL.Color3(Color.Blue);
-            GL.Vertex3(0, 0.5f, 0);
-            GL.End();
-            ((GLControl)sender).SwapBuffers();
-        }
+       
 
         private void elementHost1_ChildChanged(object sender, ChildChangedEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                eyeClosedChartPoint = eyeClosedSeries.Points.FirstOrDefault(p => p.XValue == i);
+                thirdX1.Add((double)eyeClosedChartPoint.YValues[0]);
+
+                eyeClosedChartPoint1 = eyeClosedSeries1.Points.FirstOrDefault(p => p.XValue == i);
+                thirdX2.Add((double)eyeClosedChartPoint1.YValues[0]);
+
+                eyeClosedChartPoint2 = eyeClosedSeries2.Points.FirstOrDefault(p => p.XValue == i);
+                thirdX3.Add((double)eyeClosedChartPoint2.YValues[0]);
+
+                eyeClosedChartPoint3 = eyeClosedSeries3.Points.FirstOrDefault(p => p.XValue == i);
+                thirdX4.Add((double)eyeClosedChartPoint3.YValues[0]);
+            }
+
+            for (int i = 0; i <= 4; i++)
+            {
+                headDownChartPoint = headDownSeries.Points.FirstOrDefault(p => p.XValue == i);
+                third1y.Add((double)headDownChartPoint.YValues[0]);
+
+                headDownChartPoint1 = headDownSeries1.Points.FirstOrDefault(p => p.XValue == i);
+                third2y.Add((double)headDownChartPoint1.YValues[0]);
+
+                headDownChartPoint2 = headDownSeries2.Points.FirstOrDefault(p => p.XValue == i);
+                third3y.Add((double)headDownChartPoint2.YValues[0]);
+            }
+       
+            for (int i = 0; i < 1000; i++)
+            {
+                for (int j =0; j < 5; j++)
+                {
+
+                    /* result1 = (double)eyeClosedYvalue < headDownYvalue ? eyeClosedYvalue : headDownYvalue;
+                     result2 = (double)eyeClosedYvalue1 < headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
+                     result3 = (double)(eyeClosedYvalue2 < ((1 - headDownYvalue)) ? eyeClosedYvalue2 : (1 - headDownYvalue));
+                     result4 = eyeClosedYvalue3;*/
+                    
+                    
+                    
+                    
+                    thirdResult1.Add(((double)thirdX1[i] <= third1y[j]) ? thirdX1[i] : third1y[j]);
+                    thirdResult2.Add(((double)thirdX2[i] <= third2y[j]) ? thirdX2[i] : third2y[j]);
+                    thirdResult3.Add((double)(thirdX3[i] <= ((1 - third1y[j])) ? thirdX3[i] : (1 - third1y[j])));
+                    thirdResult4.Add((double)thirdX4[i]);
+
+
+                    //richTextBox9.Text += "r1 : " + testx1.ToString() + ", r2 : " + testx2.ToString() + 
+                   //    ", r3 : " + testx3.ToString() + ", r4 : " + testx4.ToString() + "\n";
+
+                }
+
+            }
+            List<string> list1 = new List<string>();
+            for (int i = 0; i < 1000; i++)
+            {
+                list1[i] += "r1 : " + thirdResult1[i] + ", r2 : " + thirdResult2[i] +
+                   ", r3 : " + thirdResult3[i] + ", r4 : " + thirdResult4[i] + "\n";
+            }
+           /* richTextBox9.Text = "r1 : " + thirdResult1.Count + ", r2 : " + thirdResult2.Count +
+              ", r3 : " + thirdResult4.Count + ", r4 : " + thirdResult3.Count + "\n";*/
         }
     }
 }
