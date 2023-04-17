@@ -51,7 +51,7 @@ namespace fuzzy_logic
         Series deFuzzySeries1 = new Series();
         Series deFuzzySeries2 = new Series();
         Series deFuzzySeries3 = new Series();
-
+        
         System.Windows.Forms.DataVisualization.Charting.Chart deFuzzyResultChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
         Series deFuzzyResultSeries = new Series();
         Series deFuzzyResultSeries1 = new Series();
@@ -89,8 +89,12 @@ namespace fuzzy_logic
 
         double result1;
         double result2;
+        double result2_1;
         double result3;
+        double result3_1;
         double result4;
+        double result4_1;
+
 
         List<double> thirdX1 = new List<double>();
         List<double> thirdX2 = new List<double>();
@@ -746,10 +750,31 @@ namespace fuzzy_logic
 
             resultInference4.Text = headDownYvalue.ToString();
 
-            result1=(double)eyeClosedYvalue <= headDownYvalue ? eyeClosedYvalue : headDownYvalue;
+
+
+            //1.IF 눈 감음 지속시간이 "매우 낮음"이면서 고개 떨굼 횟수가 "거의 안함"이면, 수면 정도는 "완전 아님"일 가능성이 높습니다. (AND 연산자)
+            //2.IF 눈 감음 지속시간이 "매우 낮음"이거나 고개 떨굼 횟수가 "거의 안함"이면, 수면 정도는 "완전 아님"일 가능성이 높습니다. (OR 연산자)
+            //3.IF 눈 감음 지속시간이 "낮음"이면서 고개 떨굼 횟수가 "가끔"이면, 수면 정도는 "의심"일 가능성이 높습니다. (AND 연산자)
+            //4.IF 눈 감음 지속시간이 "매우 높음"이거나 고개 떨굼 횟수가 "자주"이면, 수면 정도는 "확실"일 가능성이 높습니다. (OR 연산자)
+
+            /*result1 = (double)eyeClosedYvalue <= headDownYvalue ? eyeClosedYvalue : headDownYvalue;
             result2 = (double)eyeClosedYvalue1 >= headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
             result3 = (double)(eyeClosedYvalue2 <=  ((1 - headDownYvalue)) ? eyeClosedYvalue2 : ( 1 - headDownYvalue));
-            result4 = eyeClosedYvalue3;
+            result4 = eyeClosedYvalue3;*/
+            result1 = (double)eyeClosedYvalue <= headDownYvalue ? eyeClosedYvalue : headDownYvalue ;
+            
+            //result1 = (double)eyeClosedYvalue3 >= headDownYvalue ? eyeClosedYvalue : headDownYvalue;
+
+            result2 = (double)eyeClosedYvalue1 >= headDownYvalue1 ? eyeClosedYvalue1 : headDownYvalue1;
+            
+            result3 = (double)eyeClosedYvalue2 <= headDownYvalue2 ? eyeClosedYvalue2 : headDownYvalue2;
+
+            result4 = (double)eyeClosedYvalue3 <= headDownYvalue2 ? eyeClosedYvalue3 : headDownYvalue2;
+            
+            /*if(eyeClosedInput > 600 && headDownXinput <=20 )
+            {
+                result1 = 
+            }*/
             resultInference1.Text = result1.ToString();
             resultInference2.Text = result2.ToString();
             resultInference3.Text = result3.ToString();
