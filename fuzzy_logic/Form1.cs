@@ -18,7 +18,8 @@ using OpenTK.Graphics.OpenGL;
 using OpenTK;
 using System.Windows.Forms.Integration;
 
-
+//test\
+//아니 왜 이거 안되는 거지
 namespace fuzzy_logic
 {
     public partial class Form1 : Form
