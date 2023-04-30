@@ -25,9 +25,12 @@ namespace fuzzy_logic
     public partial class Form1 : Form
     {
        
-        ChartArea eyeClosedChartArea = new ChartArea();
-        ChartArea headDownChartArea = new ChartArea();
-        
+        ChartArea turnHeadDurationChartArea = new ChartArea();
+        ChartArea turnHeadCountChartArea = new ChartArea();
+        ChartArea ConfidenceIntervalChartArea = new ChartArea();
+
+
+
         ChartArea deFuzzyChartAreaResultArea = new ChartArea();
 
         System.Windows.Forms.DataVisualization.Charting.Legend legend = new System.Windows.Forms.DataVisualization.Charting.Legend();
@@ -35,17 +38,28 @@ namespace fuzzy_logic
       
         System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 
-        System.Windows.Forms.DataVisualization.Charting.Chart eyeClosedChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-        Series eyeClosedSeries = new Series();
-        Series eyeClosedSeries1 = new Series();
-        Series eyeClosedSeries2 = new Series();
-        Series eyeClosedSeries3 = new Series();
+        System.Windows.Forms.DataVisualization.Charting.Legend intervalChartLegend = new System.Windows.Forms.DataVisualization.Charting.Legend();
 
-        System.Windows.Forms.DataVisualization.Charting.Chart headDownChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-        Series headDownSeries = new Series();
-        Series headDownSeries1 = new Series();
-        Series headDownSeries2= new Series();
-        Series headDownSeries3 = new Series();
+        System.Windows.Forms.DataVisualization.Charting.Chart turnHeadDurationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+        Series turnHeadDuration = new Series();
+        Series turnHeadDuration1 = new Series();
+        Series turnHeadDuration2 = new Series();
+        
+
+        System.Windows.Forms.DataVisualization.Charting.Chart turnHeadCountChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+        Series turnHeadCount = new Series();
+        Series turnHeadCount1 = new Series();
+        Series turnHeadCount2= new Series();
+        Series turnHeadCount3 = new Series();
+        Series turnHeadCount4 = new Series();
+
+        System.Windows.Forms.DataVisualization.Charting.Chart confidenceIntervalChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+        Series IntervalOutDuration = new Series();
+        Series IntervalOutDuration1 = new Series();
+        Series IntervalOutDuration2 = new Series();
+        Series IntervalOutDuration3 = new Series();
+        Series IntervalOutDuration4 = new Series();
+
 
         System.Windows.Forms.DataVisualization.Charting.Chart deFuzzyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
         Series deFuzzySeries = new Series();
@@ -140,24 +154,38 @@ namespace fuzzy_logic
             legend3.Alignment = StringAlignment.Center;
             legend3.BackColor = Color.White;
             legend3.Font = new Font("맑은 고딕", 9, FontStyle.Bold);
+
+            intervalChartLegend.Name = "Legend";
+            intervalChartLegend.Title = "Legend Title";
+            intervalChartLegend.Docking = Docking.Bottom;
+            intervalChartLegend.Alignment = StringAlignment.Center;
+            intervalChartLegend.BackColor = Color.White;
+            intervalChartLegend.Font = new Font("맑은 고딕", 9, FontStyle.Bold);
             // 범례 아이템의 모양을 원형으로 설정
 
 
             // Chart 생성
 
-            headDownChart.Width = 400;
-            headDownChart.Height = 250;
-            headDownChart.Left = 1100;
-            headDownChart.Top = 70;
+            turnHeadCountChart.Width = 300;
+            turnHeadCountChart.Height = 250;
+            turnHeadCountChart.Left = 800;
+            turnHeadCountChart.Top = 70;
 
-            eyeClosedChart.Width = 400;
-            eyeClosedChart.Height = 250;
-            eyeClosedChart.Left = 400;
-            eyeClosedChart.Top = 70;
+            turnHeadDurationChart.Width = 300;
+            turnHeadDurationChart.Height = 250;
+            turnHeadDurationChart.Left = 250;
+            turnHeadDurationChart.Top = 70;
 
-            deFuzzyChart.Width = 400;
-            deFuzzyChart.Height = 250;
-            deFuzzyChart.Left = 400;
+
+            confidenceIntervalChart.Width = 300;
+            confidenceIntervalChart.Height = 250;
+            confidenceIntervalChart.Left = 1400;
+            confidenceIntervalChart.Top = 70;
+
+
+            deFuzzyChart.Width = 300;
+            deFuzzyChart.Height = 300;
+            deFuzzyChart.Left = 300;
             deFuzzyChart.Top = 700;
 
             deFuzzyResultChart.Width = 400;
@@ -176,168 +204,295 @@ namespace fuzzy_logic
 
 
             // ChartArea 생성
-            headDownChartArea.AxisX.MajorGrid.Enabled = false;
-            headDownChartArea.AxisY.MajorGrid.Enabled = false;
-            headDownChartArea.Name = "ChartArea";
-            headDownChartArea.AxisX.Title = "눈 감음 시간";
-            headDownChartArea.AxisY.Title = "가중치";
-            headDownChartArea.AxisX.Minimum = 0;
-            headDownChartArea.AxisX.Maximum = 40;
-            headDownChartArea.AxisX.Interval = 10;
+            turnHeadCountChartArea.AxisX.MajorGrid.Enabled = false;
+            turnHeadCountChartArea.AxisY.MajorGrid.Enabled = false;
+            turnHeadCountChartArea.Name = "ChartArea";
+            turnHeadCountChartArea.AxisX.Title = "눈 감음 시간";
+            turnHeadCountChartArea.AxisY.Title = "가중치";
+            turnHeadCountChartArea.AxisX.Minimum = 0;
+            turnHeadCountChartArea.AxisX.Maximum = 10;
+            turnHeadCountChartArea.AxisX.Interval = 1;
 
-            eyeClosedChartArea.AxisX.MajorGrid.Enabled = false;
-            eyeClosedChartArea.AxisY.MajorGrid.Enabled = false;
-            eyeClosedChartArea.Name = "ChartArea";
-            eyeClosedChartArea.AxisX.Title = "눈 감음 시간";
-            eyeClosedChartArea.AxisY.Title = "가중치";
-            eyeClosedChartArea.AxisX.Minimum = 0;
-            eyeClosedChartArea.AxisX.Maximum = 1000;
-            eyeClosedChartArea.AxisX.Interval = 200;
+            turnHeadDurationChartArea.AxisX.MajorGrid.Enabled = false;
+            turnHeadDurationChartArea.AxisY.MajorGrid.Enabled = false;
+            turnHeadDurationChartArea.Name = "ChartArea";
+            turnHeadDurationChartArea.AxisX.Title = "눈 감음 시간";
+            turnHeadDurationChartArea.AxisY.Title = "가중치";
+            turnHeadDurationChartArea.AxisX.Minimum = 0;
+            turnHeadDurationChartArea.AxisX.Maximum = 4;
+            turnHeadDurationChartArea.AxisX.Interval = 1;
+
+            ConfidenceIntervalChartArea.AxisX.MajorGrid.Enabled = false;
+            ConfidenceIntervalChartArea.AxisY.MajorGrid.Enabled = false;
+            ConfidenceIntervalChartArea.Name = "ChartArea";
+            ConfidenceIntervalChartArea.AxisX.Title = "눈 감음 시간";
+            ConfidenceIntervalChartArea.AxisY.Title = "가중치";
+            ConfidenceIntervalChartArea.AxisX.Minimum = 0;
+            ConfidenceIntervalChartArea.AxisX.Maximum = 10;
+            ConfidenceIntervalChartArea.AxisX.Interval = 1;
+
+
             // Series 생성
-            eyeClosedSeries.Name = "Series";
-            eyeClosedSeries.ChartArea = "ChartArea";
+            turnHeadDuration.Name = "Series";
+            turnHeadDuration.ChartArea = "ChartArea";
 
 
             // DataPoint 생성 및 Series에 추가
-            for (int x = 0; x <= 1000; x++)
+            for (int x = 0; x <= 4; x++)
             {
                 double y;
-                if (x <= 200)
+                if (x <= 1)
                 {
                     y = 1;
                 }
-                else if (x > 200 && x < 400)
+                else if (x > 1 && x < 2)
                 {
-                    y = (400 - x) / 200.0;
+                    y = (2 - x) / 1;
                 }
                 else
                 {
                     y = 0;
                 }
-                eyeClosedSeries.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+                turnHeadDuration.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
-            for (int x = 0; x <= 1000; x++)
+            for (int x = 0; x <= 4; x++)
             {
                 double y;
-                if (x <= 200)
+                if (x <= 1)
                 {
                     y = 0;
                 }
-                else if (x > 200 && x <= 400)
+                else if (x > 1 && x <= 2)
                 {
-                    y = (x - 400) / 200.0 + 1;
+                    y = (x - 2) / 1 + 1;
                 }
-                else if (x > 400 && x <= 600)
+                else if (x > 2 && x <= 3)
                 {
-                    y = (600 - x) / 200.0;
+                    y = (3 - x) / 1;
                 }
                 else
                 {
                     y = 0;
                 }
-                eyeClosedSeries1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+                turnHeadDuration1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
-            for (int x = 0; x <= 1000; x++)
+            for (int x = 0; x <= 4; x++)
             {
                 double y;
-                if (x <= 400)
+                if (x <= 2)
                 {
                     y = 0;
                 }
-                else if (x > 400 && x <= 600)
+                else if (x > 2 && x <= 3)
                 {
-                    y = (x - 600) / 200.0 + 1;
+                    y = (x - 3) / 2 + 1;
                 }
-                else if (x > 600 && x <= 800)
+                else if (x > 3)
                 {
-                    y = (800 - x) / 200.0;
+                    y = 1;
+                }
+                else
+                    y = 1;
+                
+                turnHeadDuration2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+           
+
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 1)
+                {
+                    y = 1;
+                }
+                else if (x > 1 && x <= 2)
+                {
+                    y = (2 - x) / 1;
                 }
                 else
                 {
                     y = 0;
                 }
-                eyeClosedSeries2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+                turnHeadCount.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
-            for (int x = 0; x <= 1000; x++)
+            for (double x = 0; x <= 10; x++)
             {
                 double y;
-                if (x <= 600)
+                
+                if (x >= 0 && x <= 2)
+                {
+                    y = x / 2;
+                }
+                else if (x >= 2.0 && x <= 4.0)
+                {
+                    y = (2 - x) / 2+ 1.0;
+                }
+                else
                 {
                     y = 0;
                 }
-                else if (x > 600 && x <= 800)
+                turnHeadCount1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 2)
                 {
-                    y = (x - 800) / 200.0 + 1;
+                    y = 0;
+                }
+                else if (x > 2 && x <= 4)
+                {
+                    y = (x - 2) / 2;
+                }
+                else if (x > 4 && x <= 6)
+                {
+                    y = (4 - x) /2 + 1;
+                }
+                else
+                {
+                    y = 0;
+                }
+                turnHeadCount2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 4)
+                {
+                    y = 0;
+                }
+                else if (x > 4 && x <= 6)
+                {
+                    y = (x - 6) / 2 + 1;
+                }
+                else if (x > 6 && x <= 8)
+                {
+                    y = (6 - x) / 2 + 1;
+                }
+                else
+                {
+                    y = 0;
+                }
+                turnHeadCount3.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 6)
+                {
+                    y = 0;
+                }
+                else if (x > 6 && x <= 8)
+                {
+                    y = (x - 8) / 2 + 1;
+                }
+                
+                else
+                {
+                    y = 1;
+                }
+                turnHeadCount3.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+
+
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 1)
+                {
+                    y = 1;
+                }
+                else if (x > 1 && x <= 2)
+                {
+                    y = (2 - x) / 1;
+                }
+                else
+                {
+                    y = 0;
+                }
+                IntervalOutDuration.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+
+                if (x >= 0 && x <= 2)
+                {
+                    y = x / 2;
+                }
+                else if (x >= 2.0 && x <= 4.0)
+                {
+                    y = (2 - x) / 2 + 1.0;
+                }
+                else
+                {
+                    y = 0;
+                }
+                IntervalOutDuration1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 2)
+                {
+                    y = 0;
+                }
+                else if (x > 2 && x <= 4)
+                {
+                    y = (x - 2) / 2;
+                }
+                else if (x > 4 && x <= 6)
+                {
+                    y = (4 - x) / 2 + 1;
+                }
+                else
+                {
+                    y = 0;
+                }
+                IntervalOutDuration2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 4)
+                {
+                    y = 0;
+                }
+                else if (x > 4 && x <= 6)
+                {
+                    y = (x - 6) / 2 + 1;
+                }
+                else if (x > 6 && x <= 8)
+                {
+                    y = (6 - x) / 2 + 1;
+                }
+                else
+                {
+                    y = 0;
+                }
+                IntervalOutDuration3.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+            }
+            for (double x = 0; x <= 10; x++)
+            {
+                double y;
+                if (x <= 6)
+                {
+                    y = 0;
+                }
+                else if (x > 6 && x <= 8)
+                {
+                    y = (x - 8) / 2 + 1;
                 }
 
                 else
                 {
                     y = 1;
                 }
-                eyeClosedSeries3.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
+                IntervalOutDuration4.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
             }
 
-            for (double x = 0; x <= 40; x++)
-            {
-                double y;
-                if (x <= 10)
-                {
-                    y = 1;
-                }
-                else if (x > 10 && x <= 20)
-                {
-                    y = (20 - x) / 10;
-                }
-                else
-                {
-                    y = 0;
-                }
-                headDownSeries.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
-            }
-            for (double x = 0; x <= 40; x++)
-            {
-                double y;
-                if (x <= 10)
-                {
-                    y = 0;
-                }
-                else if (x > 10 && x < 20)
-                {
-                    y = (x - 10) / 10;
-                }
-                else if (x >= 20 && x <= 30)
-                {
-                    y = (20 - x) / 10 + 1;
-                }
-                else
-                {
-                    y = 0;
-                }
-                headDownSeries1.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
-            }
-            for (double x = 0; x <= 40; x++)
-            {
-                double y;
-                if (x <= 20)
-                {
-                    y = 0;
-                }
-                else if (x > 20 && x < 30)
-                {
-                    y = (x - 20) / 10;
-                }
-                else if (x >= 20 && x <= 30)
-                {
-                    y = (30 - x) / 10 + 1;
-                }
-                else
-                {
-                    y = 1;
-                }
-                headDownSeries2.Points.Add(new System.Windows.Forms.DataVisualization.Charting.DataPoint(x, y));
-            }
 
-  
+
 
             deFuzzySeries.Points.Clear();
             deFuzzySeries1.Points.Clear();
@@ -425,22 +580,19 @@ namespace fuzzy_logic
 
             //double yValue = series.Points.FirstOrDefault(p => p.XValue == 2)?.YValues[0];
             // ChartType 설정
-            eyeClosedSeries.ChartType = SeriesChartType.Line;
-            eyeClosedSeries.BorderColor = Color.Blue;
-            eyeClosedSeries.BorderWidth = 2;
+            turnHeadDuration.ChartType = SeriesChartType.Line;
+            turnHeadDuration.BorderColor = Color.Blue;
+            turnHeadDuration.BorderWidth = 2;
 
-            eyeClosedSeries1.ChartType = SeriesChartType.Line;
-            eyeClosedSeries1.BorderColor = Color.Orange;
-            eyeClosedSeries1.BorderWidth = 2;
+            turnHeadDuration1.ChartType = SeriesChartType.Line;
+            turnHeadDuration1.BorderColor = Color.Orange;
+            turnHeadDuration1.BorderWidth = 2;
 
-            eyeClosedSeries2.ChartType = SeriesChartType.Line;
-            eyeClosedSeries2.BorderColor = Color.Green;
-            eyeClosedSeries2.BorderWidth = 2;
+            turnHeadDuration2.ChartType = SeriesChartType.Line;
+            turnHeadDuration2.BorderColor = Color.Green;
+            turnHeadDuration2.BorderWidth = 2;
 
-            eyeClosedSeries3.ChartType = SeriesChartType.Line;
-            eyeClosedSeries3.BorderColor = Color.Red;
-            eyeClosedSeries3.BorderWidth = 2;
-
+           
 
 
             deFuzzySeries.ChartType = SeriesChartType.Line;
@@ -459,31 +611,44 @@ namespace fuzzy_logic
             deFuzzySeries3.BorderColor = Color.Red;
             deFuzzySeries3.BorderWidth = 2;
 
-            headDownSeries.ChartType = SeriesChartType.Line;
-            headDownSeries.BorderColor = Color.Blue;
-            headDownSeries.BorderWidth = 2;
+            turnHeadCount.ChartType = SeriesChartType.Line;
+            turnHeadCount.BorderColor = Color.Blue;
+            turnHeadCount.BorderWidth = 2;
 
-            headDownSeries1.ChartType = SeriesChartType.Line;
-            headDownSeries1.BorderColor = Color.Orange;
-            headDownSeries1.BorderWidth = 2;
+            turnHeadCount1.ChartType = SeriesChartType.Line;
+            turnHeadCount1.BorderColor = Color.Orange;
+            turnHeadCount1.BorderWidth = 2;
 
-            headDownSeries2.ChartType = SeriesChartType.Line;
-            headDownSeries2.BorderColor = Color.Green;
-            headDownSeries2.BorderWidth = 2;
+            turnHeadCount2.ChartType = SeriesChartType.Line;
+            turnHeadCount2.BorderColor = Color.Green;
+            turnHeadCount2.BorderWidth = 2;
 
-      
+            turnHeadCount3.ChartType = SeriesChartType.Line;
+            turnHeadCount3.BorderColor = Color.Purple;
+            turnHeadCount3.BorderWidth = 2;
+
+            turnHeadCount4.ChartType = SeriesChartType.Line;
+            turnHeadCount4.BorderColor = Color.Black;
+            turnHeadCount4.BorderWidth = 2;
+
 
             // Chart 컨트롤에 ChartArea와 Series 추가
-            eyeClosedChart.ChartAreas.Add(eyeClosedChartArea);
-            eyeClosedChart.Series.Add(eyeClosedSeries);
+            turnHeadDurationChart.ChartAreas.Add(turnHeadDurationChartArea);
+            turnHeadDurationChart.Series.Add(turnHeadDuration);
             //chart1.ChartAreas.Add(chartArea);
-            eyeClosedChart.Series.Add(eyeClosedSeries1);
+            turnHeadDurationChart.Series.Add(turnHeadDuration1);
             //chart1.ChartAreas.Add(chartArea);
-            eyeClosedChart.Series.Add(eyeClosedSeries2);
+            turnHeadDurationChart.Series.Add(turnHeadDuration2);
             //chart1.ChartAreas.Add(chartArea);
-            eyeClosedChart.Series.Add(eyeClosedSeries3);
 
-            
+            confidenceIntervalChart.ChartAreas.Add(ConfidenceIntervalChartArea);
+            confidenceIntervalChart.Series.Add(IntervalOutDuration);
+            confidenceIntervalChart.Series.Add(IntervalOutDuration1);
+            confidenceIntervalChart.Series.Add(IntervalOutDuration2);
+            confidenceIntervalChart.Series.Add(IntervalOutDuration3);
+            confidenceIntervalChart.Series.Add(IntervalOutDuration4);
+
+
 
             deFuzzyResultChart.ChartAreas.Add(deFuzzyChartAreaResultArea);
             deFuzzyResultChart.Series.Add(deFuzzyResultSeries);
@@ -491,119 +656,43 @@ namespace fuzzy_logic
             deFuzzyResultChart.Series.Add(deFuzzyResultSeries2);
             deFuzzyResultChart.Series.Add(deFuzzyResultSeries3);
 
-            headDownChart.ChartAreas.Add(headDownChartArea);
-            headDownChart.Series.Add(headDownSeries);
-            headDownChart.Series.Add(headDownSeries1);
-            headDownChart.Series.Add(headDownSeries2);
+            turnHeadCountChart.ChartAreas.Add(turnHeadCountChartArea);
+            turnHeadCountChart.Series.Add(turnHeadCount);
+            turnHeadCountChart.Series.Add(turnHeadCount1);
+            turnHeadCountChart.Series.Add(turnHeadCount2);
+
+            turnHeadCountChart.Series.Add(turnHeadCount3);
+            turnHeadCountChart.Series.Add(turnHeadCount4);
+   
             //chart1.ChartAreas.Add(chartArea);
 
 
 
             // Form에 Chart 추가
-            this.Controls.Add(eyeClosedChart);
-            this.Controls.Add(headDownChart);
-         
+            this.Controls.Add(turnHeadDurationChart);
+            this.Controls.Add(turnHeadCountChart);
+            this.Controls.Add(confidenceIntervalChart);
 
-            eyeClosedSeries.LegendText = "매우 낮음";
-            eyeClosedSeries1.LegendText = "낮음";
-            eyeClosedSeries2.LegendText = "높음";
-            eyeClosedSeries3.LegendText = "매우 높음";
-            eyeClosedChart.Legends.Add(legend);
+            turnHeadDuration.LegendText = "정상";
+            turnHeadDuration1.LegendText = "주의";
+            turnHeadDuration2.LegendText = "전방 미주시";
+           
+            turnHeadDurationChart.Legends.Add(legend);
 
           
 
-            headDownSeries.LegendText = "거의 안함";
-            headDownSeries1.LegendText = "가끔";
-            headDownSeries2.LegendText = "자주";
-            headDownChart.Legends.Add(legend1);
+            turnHeadCount.LegendText = "매우 낮음";
+            turnHeadCount1.LegendText = "낮음";
+            turnHeadCount2.LegendText = "중간";
+            turnHeadCount3.LegendText = "높음";
+            turnHeadCount4.LegendText = "매우 높음";
+            
+            turnHeadCountChart.Legends.Add(legend1);
 
             label12.Text = "1) if 눈 감음 지속 시간 is 매우 낮음 \n2) and고개 떨꿈 횟수 is 거의 안함 \n3) than 수면정도 is 완전낮음";
             label16.Text = "1) if 눈 감음 지속 시간 is 낮음 \n2) and고개 떨꿈 횟수 is 가끔 \n3) than 수면정도 is 의심";
             label17.Text = "1) if 눈 감음 지속 시간 is 높음 \n2) and 고개 떨꿈 횟수 is not 거의 안함 \n3) than 수면정도 is 약간 확실";
             label18.Text = "1) if 눈 감음 지속 시간 is 매우 높음 \n2) than 수면정도 is 확실";
-
-
-            /*this.openGLControl1 = new SharpGL.OpenGLControl();
-            this.openGLControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.openGLControl1.Name = "openGLControl";
-
-            // 이벤트 핸들러 연결
-            this.openGLControl1.OpenGLInitialized += new System.EventHandler(this.openGLControl_OpenGLInitialized);
-            this.openGLControl1.OpenGLDraw += new SharpGL.RenderEventHandler(this.openGLControl_OpenGLDraw);
-
-            // 폼에 OpenGLControl 추가
-            this.Controls.Add(this.openGLControl1);*//*
-            //System.Windows.Media.Media3D.
-
-
-            // HelixViewport3D 컨트롤 생성
-            HelixViewport3D viewport = new HelixViewport3D();
-
-            // 카메라 위치 설정
-            viewport.Camera.Position = new System.Windows.Media.Media3D.Point3D(10, 10, 10);
-            viewport.Camera.LookDirection = new Vector3D(-10, -10, -10);
-
-            // 그리드 생성
-            GridLinesVisual3D grid = new GridLinesVisual3D()
-            {
-                Center = new System.Windows.Media.Media3D.Point3D(0, 0, 0),
-                MajorDistance = 10,
-                MinorDistance = 1,
-                Thickness = 0.05,
-                //Color = System.Windows.Media.Colors.Gray
-            };
-
-            // 그리드를 뷰포트에 추가
-            viewport.Children.Add(grid);
-
-            // 3D 그래프 생성
-            int n = 50;
-            double step = 0.2;
-            System.Windows.Media.Media3D.Point3D[,] points = new System.Windows.Media.Media3D.Point3D[n, n];
-            MeshBuilder meshBuilder = new MeshBuilder();
-           *//* for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < n; j++)
-                {
-                    double x = i * step - (n / 2.0) * step;
-                    double y = j * step - (n / 2.0) * step;
-                    double z = x * x + y * y;
-                    Color color = Color.Red; // 빨간색으로 변
-                    points[i, j] = new System.Windows.Media.Media3D.Point3D(x, y, z);
-                }
-            }
-
-            for (int i = 0; i < n - 1; i++)
-            {
-                for (int j = 0; j < n - 1; j++)
-                {
-                    System.Windows.Media.Media3D.Point3D p0 = points[i, j];
-                    System.Windows.Media.Media3D.Point3D p1 = points[i + 1, j];
-                    System.Windows.Media.Media3D.Point3D p2 = points[i + 1, j + 1];
-                    System.Windows.Media.Media3D.Point3D p3 = points[i, j + 1];
-                    meshBuilder.AddTriangle(p0, p1, p2);
-                    meshBuilder.AddTriangle(p0, p2, p3);
-                }
-            }*//*
-
-            for(int x = 0; x < 1000; x++)
-            {
-                
-                 
-                    
-            }
-
-            GeometryModel3D model = new GeometryModel3D(meshBuilder.ToMesh(), Materials.Blue);
-            ModelVisual3D visual = new ModelVisual3D();
-            visual.Content = model;
-            viewport.Children.Add(visual);
-
-            // ElementHost에 뷰포트 추가
-            elementHost1.Child = viewport;
-
-
-
-*/
 
 
 
@@ -679,14 +768,14 @@ namespace fuzzy_logic
         {
             
 
-            eyeClosedChartPoint = eyeClosedSeries.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
-            eyeClosedChartPoint1 = eyeClosedSeries1.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
-            eyeClosedChartPoint2 = eyeClosedSeries2.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
-            eyeClosedChartPoint3 = eyeClosedSeries3.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
+            eyeClosedChartPoint = turnHeadDuration.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
+            eyeClosedChartPoint1 = turnHeadDuration1.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
+            eyeClosedChartPoint2 = turnHeadDuration2.Points.FirstOrDefault(p => p.XValue == eyeClosedInput);
+           
 
-            headDownChartPoint = headDownSeries.Points.FirstOrDefault(p => p.XValue == headDownXinput);
-            headDownChartPoint1 = headDownSeries1.Points.FirstOrDefault(p => p.XValue == headDownXinput);
-            headDownChartPoint2 = headDownSeries2.Points.FirstOrDefault(p => p.XValue == headDownXinput);
+            headDownChartPoint = turnHeadCount.Points.FirstOrDefault(p => p.XValue == headDownXinput);
+            headDownChartPoint1 = turnHeadCount1.Points.FirstOrDefault(p => p.XValue == headDownXinput);
+            headDownChartPoint2 = turnHeadCount2.Points.FirstOrDefault(p => p.XValue == headDownXinput);
 
             
 
@@ -1080,6 +1169,11 @@ namespace fuzzy_logic
         }
 
         private void richTextBox9_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
         {
 
         }

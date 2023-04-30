@@ -45,11 +45,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -92,11 +90,29 @@
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.label11 = new System.Windows.Forms.Label();
+            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.richTextBox9 = new System.Windows.Forms.RichTextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.richTextBox10 = new System.Windows.Forms.RichTextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.richTextBox11 = new System.Windows.Forms.RichTextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.richTextBox12 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox13 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox14 = new System.Windows.Forms.RichTextBox();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.progressBar3 = new System.Windows.Forms.ProgressBar();
+            this.label38 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -171,9 +187,14 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(45, 149);
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown1.Location = new System.Drawing.Point(3, 69);
             this.numericUpDown1.Maximum = new decimal(new int[] {
-            1000,
+            4,
             0,
             0,
             0});
@@ -184,10 +205,11 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(45, 120);
-            this.progressBar1.Maximum = 1000;
+            this.progressBar1.Location = new System.Drawing.Point(3, 40);
+            this.progressBar1.Maximum = 3;
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(241, 23);
+            this.progressBar1.Step = 1;
             this.progressBar1.TabIndex = 5;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
@@ -196,11 +218,11 @@
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label6.Location = new System.Drawing.Point(46, 96);
+            this.label6.Location = new System.Drawing.Point(4, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 23);
+            this.label6.Size = new System.Drawing.Size(108, 23);
             this.label6.TabIndex = 6;
-            this.label6.Text = "수면시간";
+            this.label6.Text = "상하좌우지속";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label7
@@ -208,17 +230,17 @@
             this.label7.AutoSize = true;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label7.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label7.Location = new System.Drawing.Point(46, 211);
+            this.label7.Location = new System.Drawing.Point(4, 131);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 23);
+            this.label7.Size = new System.Drawing.Size(98, 23);
             this.label7.TabIndex = 7;
-            this.label7.Text = "고개떨굼";
+            this.label7.Text = "미주시 횟수";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(45, 235);
-            this.progressBar2.Maximum = 40;
+            this.progressBar2.Location = new System.Drawing.Point(3, 155);
+            this.progressBar2.Maximum = 10;
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(241, 23);
             this.progressBar2.Step = 1;
@@ -227,12 +249,7 @@
             // numericUpDown2
             // 
             this.numericUpDown2.DecimalPlaces = 1;
-            this.numericUpDown2.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            65536});
-            this.numericUpDown2.Location = new System.Drawing.Point(45, 264);
+            this.numericUpDown2.Location = new System.Drawing.Point(3, 184);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(42, 21);
             this.numericUpDown2.TabIndex = 9;
@@ -240,15 +257,16 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(821, 100);
+            this.richTextBox1.Location = new System.Drawing.Point(592, 101);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(88, 29);
             this.richTextBox1.TabIndex = 10;
             this.richTextBox1.Text = "";
+            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(821, 148);
+            this.richTextBox2.Location = new System.Drawing.Point(592, 149);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(88, 29);
             this.richTextBox2.TabIndex = 11;
@@ -256,64 +274,46 @@
             // 
             // richTextBox3
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(821, 192);
+            this.richTextBox3.Location = new System.Drawing.Point(592, 193);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(88, 29);
             this.richTextBox3.TabIndex = 12;
             this.richTextBox3.Text = "";
             // 
-            // richTextBox4
-            // 
-            this.richTextBox4.Location = new System.Drawing.Point(821, 235);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(88, 29);
-            this.richTextBox4.TabIndex = 13;
-            this.richTextBox4.Text = "";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(915, 100);
+            this.label8.Location = new System.Drawing.Point(686, 101);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(80, 21);
+            this.label8.Size = new System.Drawing.Size(42, 21);
             this.label8.TabIndex = 14;
-            this.label8.Text = "매우 낮음";
+            this.label8.Text = "정상";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label9.Location = new System.Drawing.Point(915, 149);
+            this.label9.Location = new System.Drawing.Point(686, 150);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 21);
             this.label9.TabIndex = 15;
-            this.label9.Text = "낮음";
+            this.label9.Text = "주의";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label10.Location = new System.Drawing.Point(915, 192);
+            this.label10.Location = new System.Drawing.Point(686, 193);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 21);
+            this.label10.Size = new System.Drawing.Size(96, 21);
             this.label10.TabIndex = 16;
-            this.label10.Text = "높음";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(915, 237);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(80, 21);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "매우 높음";
+            this.label10.Text = "전방 미주시";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 285);
+            this.button1.Location = new System.Drawing.Point(169, 300);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -325,36 +325,36 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(1614, 188);
+            this.label13.Location = new System.Drawing.Point(1225, 176);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(42, 21);
             this.label13.TabIndex = 25;
-            this.label13.Text = "자주";
+            this.label13.Text = "중간";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(1614, 145);
+            this.label14.Location = new System.Drawing.Point(1225, 133);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(42, 21);
             this.label14.TabIndex = 24;
-            this.label14.Text = "가끔";
+            this.label14.Text = "낮음";
             // 
             // label15
             // 
             this.label15.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(1614, 96);
+            this.label15.Location = new System.Drawing.Point(1225, 84);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(80, 21);
             this.label15.TabIndex = 23;
-            this.label15.Text = "거의 안함";
+            this.label15.Text = "매우 낮음";
             // 
             // richTextBox6
             // 
-            this.richTextBox6.Location = new System.Drawing.Point(1520, 188);
+            this.richTextBox6.Location = new System.Drawing.Point(1131, 176);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.Size = new System.Drawing.Size(88, 33);
             this.richTextBox6.TabIndex = 21;
@@ -362,7 +362,7 @@
             // 
             // richTextBox7
             // 
-            this.richTextBox7.Location = new System.Drawing.Point(1520, 144);
+            this.richTextBox7.Location = new System.Drawing.Point(1131, 132);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.Size = new System.Drawing.Size(88, 33);
             this.richTextBox7.TabIndex = 20;
@@ -371,7 +371,7 @@
             // 
             // richTextBox8
             // 
-            this.richTextBox8.Location = new System.Drawing.Point(1520, 96);
+            this.richTextBox8.Location = new System.Drawing.Point(1131, 84);
             this.richTextBox8.Name = "richTextBox8";
             this.richTextBox8.Size = new System.Drawing.Size(88, 33);
             this.richTextBox8.TabIndex = 19;
@@ -680,12 +680,194 @@
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(1225, 215);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(42, 21);
+            this.label11.TabIndex = 58;
+            this.label11.Text = "높음";
+            // 
+            // richTextBox4
+            // 
+            this.richTextBox4.Location = new System.Drawing.Point(1131, 215);
+            this.richTextBox4.Name = "richTextBox4";
+            this.richTextBox4.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox4.TabIndex = 57;
+            this.richTextBox4.Text = "";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label32.Location = new System.Drawing.Point(1225, 254);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(80, 21);
+            this.label32.TabIndex = 60;
+            this.label32.Text = "매우 높음";
+            // 
+            // richTextBox9
+            // 
+            this.richTextBox9.Location = new System.Drawing.Point(1131, 254);
+            this.richTextBox9.Name = "richTextBox9";
+            this.richTextBox9.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox9.TabIndex = 59;
+            this.richTextBox9.Text = "";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label33.Location = new System.Drawing.Point(1820, 254);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(80, 21);
+            this.label33.TabIndex = 70;
+            this.label33.Text = "매우 높음";
+            // 
+            // richTextBox10
+            // 
+            this.richTextBox10.Location = new System.Drawing.Point(1726, 254);
+            this.richTextBox10.Name = "richTextBox10";
+            this.richTextBox10.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox10.TabIndex = 69;
+            this.richTextBox10.Text = "";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(1820, 215);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(42, 21);
+            this.label34.TabIndex = 68;
+            this.label34.Text = "높음";
+            // 
+            // richTextBox11
+            // 
+            this.richTextBox11.Location = new System.Drawing.Point(1726, 215);
+            this.richTextBox11.Name = "richTextBox11";
+            this.richTextBox11.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox11.TabIndex = 67;
+            this.richTextBox11.Text = "";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label35.Location = new System.Drawing.Point(1820, 176);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(42, 21);
+            this.label35.TabIndex = 66;
+            this.label35.Text = "중간";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label36.Location = new System.Drawing.Point(1820, 133);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(42, 21);
+            this.label36.TabIndex = 65;
+            this.label36.Text = "낮음";
+            // 
+            // label37
+            // 
+            this.label37.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold);
+            this.label37.Location = new System.Drawing.Point(1820, 84);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(80, 21);
+            this.label37.TabIndex = 64;
+            this.label37.Text = "매우 낮음";
+            // 
+            // richTextBox12
+            // 
+            this.richTextBox12.Location = new System.Drawing.Point(1726, 176);
+            this.richTextBox12.Name = "richTextBox12";
+            this.richTextBox12.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox12.TabIndex = 63;
+            this.richTextBox12.Text = "";
+            // 
+            // richTextBox13
+            // 
+            this.richTextBox13.Location = new System.Drawing.Point(1726, 132);
+            this.richTextBox13.Name = "richTextBox13";
+            this.richTextBox13.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox13.TabIndex = 62;
+            this.richTextBox13.Text = "";
+            // 
+            // richTextBox14
+            // 
+            this.richTextBox14.Location = new System.Drawing.Point(1726, 84);
+            this.richTextBox14.Name = "richTextBox14";
+            this.richTextBox14.Size = new System.Drawing.Size(88, 33);
+            this.richTextBox14.TabIndex = 61;
+            this.richTextBox14.Text = "";
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.DecimalPlaces = 1;
+            this.numericUpDown3.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            65536});
+            this.numericUpDown3.Location = new System.Drawing.Point(2, 289);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(42, 21);
+            this.numericUpDown3.TabIndex = 73;
+            // 
+            // progressBar3
+            // 
+            this.progressBar3.Location = new System.Drawing.Point(2, 260);
+            this.progressBar3.Maximum = 10;
+            this.progressBar3.Name = "progressBar3";
+            this.progressBar3.Size = new System.Drawing.Size(241, 23);
+            this.progressBar3.Step = 1;
+            this.progressBar3.TabIndex = 72;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label38.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.label38.Location = new System.Drawing.Point(3, 236);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(146, 23);
+            this.label38.TabIndex = 71;
+            this.label38.Text = "임계범위 지속시간";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1516, 942);
+            this.ClientSize = new System.Drawing.Size(1784, 978);
+            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.progressBar3);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.richTextBox10);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.richTextBox11);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.richTextBox12);
+            this.Controls.Add(this.richTextBox13);
+            this.Controls.Add(this.richTextBox14);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.richTextBox9);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.richTextBox5);
@@ -724,11 +906,9 @@
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.richTextBox8);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.richTextBox3);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
@@ -753,6 +933,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -776,11 +957,9 @@
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.RichTextBox richTextBox3;
-        private System.Windows.Forms.RichTextBox richTextBox4;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
@@ -823,6 +1002,23 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.RichTextBox richTextBox9;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.RichTextBox richTextBox10;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.RichTextBox richTextBox11;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.RichTextBox richTextBox12;
+        private System.Windows.Forms.RichTextBox richTextBox13;
+        private System.Windows.Forms.RichTextBox richTextBox14;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.ProgressBar progressBar3;
+        private System.Windows.Forms.Label label38;
     }
 }
 
